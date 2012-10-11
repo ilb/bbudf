@@ -101,6 +101,7 @@ help: .help-post
 # Add your post 'help' code here...
 
 install:
+	${RM} ${UDFLIBDIR}/${CND_ARTIFACT_NAME_${CONF}}
 	${CP} ${CND_ARTIFACT_PATH_${CONF}} ${UDFLIBDIR}
 
 # include project implementation makefile
