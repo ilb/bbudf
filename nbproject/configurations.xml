@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="84">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>src/bbudf.h</itemPath>
+      <itemPath>src/curl.h</itemPath>
+      <itemPath>src/file.h</itemPath>
+      <itemPath>src/inet.h</itemPath>
+      <itemPath>src/logger.h</itemPath>
+      <itemPath>src/stdafx.h</itemPath>
+      <itemPath>src/string.h</itemPath>
+      <itemPath>src/xmlreader.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <itemPath>sql/curl.sql</itemPath>
+      <itemPath>test/sql/curltest.sql</itemPath>
+      <itemPath>sql/file.sql</itemPath>
+      <itemPath>test/sql/filetest.sql</itemPath>
+      <itemPath>sql/inet.sql</itemPath>
+      <itemPath>sql/string.sql</itemPath>
+      <itemPath>test/sql/stringtest.sql</itemPath>
+      <itemPath>sql/xmlreader.sql</itemPath>
+      <itemPath>test/sql/xmlreadertest.sql</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>src/bbudf.cpp</itemPath>
+      <itemPath>src/curl.cpp</itemPath>
+      <itemPath>src/file.cpp</itemPath>
+      <itemPath>src/inet.cpp</itemPath>
+      <itemPath>src/logger.cpp</itemPath>
+      <itemPath>src/stdafx.cpp</itemPath>
+      <itemPath>src/string.cpp</itemPath>
+      <itemPath>src/xmlreader.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU|GNU</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>/usr/include/libxml2</pElem>
+            <pElem>/usr/include/firebird</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>xml2</linkerLibLibItem>
+            <linkerLibLibItem>ib_util</linkerLibLibItem>
+            <linkerLibLibItem>curl</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+    </conf>
+    <conf name="Release" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU|GNU</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>/usr/include/libxml2</pElem>
+            <pElem>/usr/include/firebird</pElem>
+          </incDir>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>xml2</linkerLibLibItem>
+            <linkerLibLibItem>ib_util</linkerLibLibItem>
+            <linkerLibLibItem>curl</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+    </conf>
+  </confs>
+</configurationDescriptor>

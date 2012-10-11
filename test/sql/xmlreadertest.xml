@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportgroup id="TCREDITTREATYCARD" xmlns="urn:ru:ilb:ics:report:forms">
+    <report ref="009d_Kredistoriya_s_RVPS"/>
+    <report ref="009e_Kred_istoriya_dlya_ARIZHK"/>
+    <report ref="009g_Kredit_istoriya_dlya_vneshnego"/>
+    <report ref="009v_Kreditnaya_istoriya_novaya"/>
+</reportgroup>
