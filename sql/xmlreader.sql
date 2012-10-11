@@ -2,6 +2,7 @@
 
 set sql dialect 3;
 
+/*
 drop external function bbudf_xmlreader_open;
 drop external function bbudf_xmlreader_close;
 drop external function bbudf_xmlreader_read;
@@ -12,6 +13,7 @@ drop external function bbudf_xmlreader_nodetype;
 drop external function bbudf_xmlreader_isemptyelement;
 drop external function bbudf_xmlreader_getattribute;
 drop external function bbudf_xmlreader_readString;
+*/
 
 declare external function bbudf_xmlreader_open
 cstring(512) CHARACTER SET UTF8 returns int by value

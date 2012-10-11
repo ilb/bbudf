@@ -1,3 +1,7 @@
 .svn
 .dep.inc
 nbproject/private
+build/Release
+build/Debug
+dist/Release
+dist/Debug

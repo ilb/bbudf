@@ -2,8 +2,10 @@
 
 set sql dialect 3;
 
+/*
 drop external function bbudf_curl_exec;
 drop external function bbudf_curl_get_response_code;
+*/
 
 -- FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslcert, const char* sslcertpassword,const char* cainfo, const char* headers, blobcallback* datablob, blobcallback* outblob);
 declare external function bbudf_curl_exec

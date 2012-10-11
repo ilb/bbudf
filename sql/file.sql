@@ -2,9 +2,11 @@
 
 set sql dialect 3;
 
+/*
 drop external function bbudf_file_get_contents;
 drop external function bbudf_file_put_contents;
 drop external function bbudf_tempnam;
+*/
 
 --FBUDF_API blobcallback* fn_file_get_contents(const paramdsc* v, blobcallback* outblob)
 declare external function bbudf_file_get_contents cstring(512), blob returns parameter 2 entry_point 'fn_file_get_contents' module_name 'libbbudf';
