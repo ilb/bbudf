@@ -14,6 +14,7 @@ FBUDF_API xmlTextReaderPtr fn_xmlreader_openblob(blobcallback* datablob);
 FBUDF_API int fn_xmlreader_close(xmlTextReaderPtr* reader);
 FBUDF_API int fn_xmlreader_read(xmlTextReaderPtr* reader);
 FBUDF_API char* fn_xmlreader_name(xmlTextReaderPtr* reader);
+FBUDF_API char* fn_xmlreader_localname(xmlTextReaderPtr* reader);
 FBUDF_API char* fn_xmlreader_value(xmlTextReaderPtr* reader);
 FBUDF_API int fn_xmlreader_depth(xmlTextReaderPtr* reader);
 FBUDF_API int fn_xmlreader_nodetype(xmlTextReaderPtr* reader);

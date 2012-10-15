@@ -35,6 +35,10 @@ declare external function bbudf_xmlreader_name
 int returns cstring(128) CHARACTER SET UTF8 free_it
 entry_point 'fn_xmlreader_name' module_name 'libbbudf';
 
+declare external function bbudf_xmlreader_localname
+int returns cstring(128) CHARACTER SET UTF8 free_it
+entry_point 'fn_xmlreader_localname' module_name 'libbbudf';
+
 declare external function bbudf_xmlreader_value
 int returns cstring(512) CHARACTER SET UTF8 free_it
 entry_point 'fn_xmlreader_value' module_name 'libbbudf';

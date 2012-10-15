@@ -70,6 +70,9 @@ FBUDF_API int fn_xmlreader_read(xmlTextReaderPtr* reader) {
 FBUDF_API char* fn_xmlreader_name(xmlTextReaderPtr* reader) {
 	return xmlreader::xml2fbstr(xmlTextReaderName(*reader));
 }
+FBUDF_API char* fn_xmlreader_localname(xmlTextReaderPtr* reader) {
+	return xmlreader::xml2fbstr(xmlTextReaderLocalName(*reader));
+}
 FBUDF_API char* fn_xmlreader_value(xmlTextReaderPtr* reader) {
 	return xmlreader::xml2fbstr(xmlTextReaderValue(*reader));
 }

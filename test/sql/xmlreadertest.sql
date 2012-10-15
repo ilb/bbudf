@@ -2,6 +2,7 @@ SET TERM ^ ;
 execute block
 RETURNS (
     NAME Varchar(128),
+    LOCALNAME Varchar(128),
     VAL Varchar(8191),
     DEPTH Integer,
     NODETYPE Integer,
@@ -25,11 +26,13 @@ BEGIN
         begin
             select
                 BBUDF_XMLREADER_NAME(:reader),
+                BBUDF_XMLREADER_LOCALNAME(:reader),
                 BBUDF_XMLREADER_DEPTH(:reader),
                 BBUDF_XMLREADER_ISEMPTYELEMENT(:reader),
                 BBUDF_XMLREADER_GETATTRIBUTE(:reader,'key')
             from RDB$DATABASE into
                 name,
+                localname,
                 depth,
                 isemptyelement,
                 entrykey;
