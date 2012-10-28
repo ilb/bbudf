@@ -133,5 +133,42 @@
         </linkerTool>
       </compileType>
     </conf>
+    <conf name="Release-cross-mingw32" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU|GNU</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>i686-w64-mingw32-gcc</commandlineTool>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>i686-w64-mingw32-g++</commandlineTool>
+          <incDir>
+            <pElem>/usr/x86_64-w64-mingw32/sys-root/mingw/include</pElem>
+            <pElem>/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2</pElem>
+            <pElem>/usr/include/firebird</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>FBUDF_EXPORTS</Elem>
+            <Elem>WIN32</Elem>
+          </preprocessorList>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <linkerTool>
+          <commandlineTool>i686-w64-mingw32-g++</commandlineTool>
+          <linkerLibItems>
+            <linkerLibLibItem>xml2</linkerLibLibItem>
+            <linkerLibLibItem>ib_util</linkerLibLibItem>
+            <linkerLibLibItem>curl</linkerLibLibItem>
+          </linkerLibItems>
+          <commandLine>-static-libgcc -static-libstdc++</commandLine>
+        </linkerTool>
+      </compileType>
+    </conf>
   </confs>
 </configurationDescriptor>

@@ -31,7 +31,7 @@ DEFAULTCONF=Debug
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Release Debug-cross-mingw32 
+ALLCONFS=Debug Release Debug-cross-mingw32 Release-cross-mingw32 
 
 
 # build
