@@ -1,0 +1,4 @@
+; i686-w64-mingw32-dlltool -z ib_util.def --export-all-symbol ib_util.dll
+LIBRARY ib_util.dll
+EXPORTS
+ib_util_malloc

@@ -22,6 +22,14 @@ CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/libbbudf.so
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Release=libbbudf.so.tar
 CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/libbbudf.so.tar
+# Debug-cross-mingw32 configuration
+CND_PLATFORM_Debug-cross-mingw32=GNU-Linux-x86
+CND_ARTIFACT_DIR_Debug-cross-mingw32=dist/Debug-cross-mingw32/GNU-Linux-x86
+CND_ARTIFACT_NAME_Debug-cross-mingw32=libbbudf.so
+CND_ARTIFACT_PATH_Debug-cross-mingw32=dist/Debug-cross-mingw32/GNU-Linux-x86/libbbudf.so
+CND_PACKAGE_DIR_Debug-cross-mingw32=dist/Debug-cross-mingw32/GNU-Linux-x86/package
+CND_PACKAGE_NAME_Debug-cross-mingw32=libbbudf.so.tar
+CND_PACKAGE_PATH_Debug-cross-mingw32=dist/Debug-cross-mingw32/GNU-Linux-x86/package/libbbudf.so.tar
 #
 # include compiler specific variables
 #

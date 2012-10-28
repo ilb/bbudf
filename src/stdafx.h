@@ -13,10 +13,13 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <libxml/xmlreader.h>
-#include <arpa/inet.h>
+#if defined(WIN32)
+#else
+//#include <arpa/inet.h>
+//#include <syslog.h>
+#endif
 #include <curl/curl.h>
 #include <stdarg.h>
-#include <syslog.h>
 #include <errno.h>
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

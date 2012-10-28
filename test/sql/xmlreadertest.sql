@@ -13,7 +13,7 @@ DECLARE VARIABLE path varchar(300);
 DECLARE VARIABLE reader int;
 DECLARE VARIABLE res int;
 BEGIN
-  path='/etc/ru.ilb/resources.configuration.properties.xml';
+  path='/tmp/xmlreadertest.xml';
   select BBUDF_XMLREADER_OPEN(:path) from RDB$DATABASE into reader;
   if (reader <> 0) then
   begin

@@ -72,6 +72,9 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 	curl_easy_setopt(ch,CURLOPT_WRITEDATA,outblob);
 	struct curl_slist *slist=NULL;
 	if(headers){
+#if defined(WIN32)
+#else
+		
 		char *saveptr;
 		char *headersdup=strdup(headers);
 		char *token=strtok_r(headersdup, "\n", &saveptr);
@@ -80,6 +83,7 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 			 token=strtok_r(NULL, "\n", &saveptr);
 		}
 		free(headersdup);
+#endif
 	}
 	curl_easy_setopt(ch, CURLOPT_HTTPHEADER, slist);
 	curl_easy_setopt(ch, CURLOPT_COOKIE, cookies);

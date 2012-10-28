@@ -5,3 +5,5 @@ build/Release
 build/Debug
 dist/Release
 dist/Debug
+/build/
+/dist/
