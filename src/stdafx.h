@@ -15,8 +15,8 @@
 #include <libxml/xmlreader.h>
 #if defined(WIN32)
 #else
-//#include <arpa/inet.h>
-//#include <syslog.h>
+#include <arpa/inet.h>
+#include <syslog.h>
 #endif
 #include <curl/curl.h>
 #include <stdarg.h>
