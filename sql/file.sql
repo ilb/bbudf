@@ -18,3 +18,5 @@ declare external function bbudf_tempnam cstring(64) null, cstring(64), varchar(2
 declare external function bbudf_mkpath cstring(512) character set utf8,integer null returns integer by value entry_point 'fn_mkpath' module_name 'libbbudf';
 --FBUDF_API char* fn_dirname(const char *path, paramdsc* rc)
 declare external function bbudf_dirname cstring(512) character set utf8, varchar(512) character set utf8 by descriptor returns parameter 2 entry_point 'fn_dirname' module_name 'libbbudf';
+--FBUDF_API int fn_unlink(const char *path)
+declare external function bbudf_unlink cstring(512) character set utf8 returns integer by value entry_point 'fn_unlink' module_name 'libbbudf';

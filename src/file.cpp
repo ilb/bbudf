@@ -115,6 +115,7 @@ FBUDF_API int fn_mkpath(const char *path, int* mode) {
 	int status;
 	int mode_=(mode && *mode) ? *mode : 0777;
 	char *copypath = strdup(path);
+	int result = 0;
 
 	status = 0;
 	pp = copypath;
@@ -130,11 +131,14 @@ FBUDF_API int fn_mkpath(const char *path, int* mode) {
 	if (status == 0) {
 		status = file::do_mkdir(path, mode_);
 	}
+	if (status != 0) {
+		result=errno;
+	}
 	free(copypath);
-	return (status);
+	return result;
 }
 
-FBUDF_API char* fn_dirname(const char *path, paramdsc* rc) {
+FBUDF_API void fn_dirname(const char *path, paramdsc* rc) {
 	char *dirc=strdup(path);
 	char *dirn=dirname(dirc);
 	int len = strlen(dirn);
@@ -143,4 +147,13 @@ FBUDF_API char* fn_dirname(const char *path, paramdsc* rc) {
 	}
 	internal::set_any_string_type(rc, len, (ISC_UCHAR*) dirn);
 	free(dirc);
+}
+
+FBUDF_API int fn_unlink(const char *path) {
+	int result=0;
+	int status=unlink(path);
+	if (status!=0){
+		result=errno;
+	}
+	return result;
 }
