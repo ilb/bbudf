@@ -14,9 +14,13 @@
 #include <stdlib.h>
 #include <libxml/xmlreader.h>
 #if defined(WIN32)
+#define PATH_SEPARATOR '\\'
 #else
+#define PATH_SEPARATOR '/'
 #include <arpa/inet.h>
 #include <syslog.h>
+#include <sys/stat.h>
+#include <libgen.h>
 #endif
 #include <curl/curl.h>
 #include <stdarg.h>

@@ -33,26 +33,24 @@ FBUDF_API void fn_inet_pton(const paramdsc* srcdsc, paramdsc* rc) {
 FBUDF_API void fn_inet_ntop(const paramdsc* srcdsc, paramdsc* rc) {
 #if defined(WIN32)
 #else
-	/*
-	    if(internal::isnull(srcdsc)){
-		    internal::setnull(rc);
-		    return;
-	    }
-	    unsigned char str[INET6_ADDRSTRLEN];
-	    ISC_INT64 src;
-	    int srclen = internal::get_int_type(srcdsc,src);
-	    if (srclen < 0) {
-		    internal::setnull(rc);
-		    //internal::set_any_string_type(rc, 1, (unsigned char*)"a");
-		    return;
-	    }
-	    ISC_INT64 iv=htonl(src);
-	    if (inet_ntop(AF_INET,  &iv, (char*) str, INET6_ADDRSTRLEN) == NULL) {
-		    internal::setnull(rc);
-		    //internal::set_any_string_type(rc, 1, (unsigned char*)"b");
-		    return;
-	    }
-	    internal::set_any_string_type(rc, strlen((char*)str), str);
-	 */
+	if (internal::isnull(srcdsc)) {
+		internal::setnull(rc);
+		return;
+	}
+	unsigned char str[INET6_ADDRSTRLEN];
+	ISC_INT64 src;
+	int srclen = internal::get_int_type(srcdsc, src);
+	if (srclen < 0) {
+		internal::setnull(rc);
+		//internal::set_any_string_type(rc, 1, (unsigned char*)"a");
+		return;
+	}
+	ISC_INT64 iv = htonl(src);
+	if (inet_ntop(AF_INET, &iv, (char*) str, INET6_ADDRSTRLEN) == NULL) {
+		internal::setnull(rc);
+		//internal::set_any_string_type(rc, 1, (unsigned char*)"b");
+		return;
+	}
+	internal::set_any_string_type(rc, strlen((char*) str), str);
 #endif
 }
