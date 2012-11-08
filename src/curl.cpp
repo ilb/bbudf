@@ -91,7 +91,11 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 		//logger::syslog(0, "setup readfunction_blob(), data length=%d",datablob->blob_total_length);
 		curl_easy_setopt(ch,CURLOPT_READFUNCTION,curl::readfunction_blob);
 		curl_easy_setopt(ch,CURLOPT_READDATA,datablob);
-		curl_easy_setopt(ch,CURLOPT_POSTFIELDSIZE,datablob->blob_total_length);
+		if (strcmp(method,"PUT")==0) {
+			curl_easy_setopt(ch,CURLOPT_INFILESIZE,datablob->blob_total_length);
+		}else{
+			curl_easy_setopt(ch,CURLOPT_POSTFIELDSIZE,datablob->blob_total_length);
+		}
 	}
 	code=curl_easy_perform(ch);
 	if(slist){
