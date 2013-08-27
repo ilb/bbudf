@@ -35,14 +35,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/file.o \
-	${OBJECTDIR}/src/string.o \
 	${OBJECTDIR}/src/bbudf.o \
-	${OBJECTDIR}/src/xmlreader.o \
+	${OBJECTDIR}/src/curl.o \
+	${OBJECTDIR}/src/file.o \
 	${OBJECTDIR}/src/inet.o \
 	${OBJECTDIR}/src/logger.o \
-	${OBJECTDIR}/src/curl.o \
-	${OBJECTDIR}/src/stdafx.o
+	${OBJECTDIR}/src/stdafx.o \
+	${OBJECTDIR}/src/string.o \
+	${OBJECTDIR}/src/xmlreader.o
 
 
 # C Compiler Flags
@@ -67,27 +67,22 @@ LDLIBSOPTIONS=-lxml2 -lcurl -lib_util
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libbbudf.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	i686-w64-mingw32-g++ -static-libgcc -static-libstdc++ -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libbbudf.${CND_DLIB_EXT} -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
-
-${OBJECTDIR}/src/file.o: src/file.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/file.o src/file.cpp
-
-${OBJECTDIR}/src/string.o: src/string.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/string.o src/string.cpp
+	i686-w64-mingw32-g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libbbudf.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -static-libgcc -static-libstdc++ -shared -fPIC
 
 ${OBJECTDIR}/src/bbudf.o: src/bbudf.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/bbudf.o src/bbudf.cpp
 
-${OBJECTDIR}/src/xmlreader.o: src/xmlreader.cpp 
+${OBJECTDIR}/src/curl.o: src/curl.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/xmlreader.o src/xmlreader.cpp
+	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/curl.o src/curl.cpp
+
+${OBJECTDIR}/src/file.o: src/file.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/file.o src/file.cpp
 
 ${OBJECTDIR}/src/inet.o: src/inet.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -99,15 +94,20 @@ ${OBJECTDIR}/src/logger.o: src/logger.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/logger.o src/logger.cpp
 
-${OBJECTDIR}/src/curl.o: src/curl.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/curl.o src/curl.cpp
-
 ${OBJECTDIR}/src/stdafx.o: src/stdafx.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/stdafx.o src/stdafx.cpp
+
+${OBJECTDIR}/src/string.o: src/string.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/string.o src/string.cpp
+
+${OBJECTDIR}/src/xmlreader.o: src/xmlreader.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -DFBUDF_EXPORTS -DWIN32 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/xmlreader.o src/xmlreader.cpp
 
 # Subprojects
 .build-subprojects:

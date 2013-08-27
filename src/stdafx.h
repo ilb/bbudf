@@ -25,6 +25,7 @@
 #include <curl/curl.h>
 #include <stdarg.h>
 #include <errno.h>
+#include <map>
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 

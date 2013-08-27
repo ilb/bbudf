@@ -49,7 +49,7 @@ MKDIR=mkdir
 CP=cp
 CCADMIN=CCadmin
 RANLIB=ranlib
-UDFLIBDIR=/usr/lib/firebird/UDF
+UDFLIBDIR=/usr/lib64/firebird/udf
 
 # build
 build: .build-post
