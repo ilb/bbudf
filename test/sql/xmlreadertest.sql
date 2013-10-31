@@ -1,51 +1,34 @@
-SET TERM ^ ;
 execute block
 RETURNS (
-    NAME Varchar(128),
-    LOCALNAME Varchar(128),
-    VAL Varchar(8191),
-    DEPTH Integer,
-    NODETYPE Integer,
-    ISEMPTYELEMENT Integer,
-    entrykey Varchar(512) )
+    Currency Varchar(3),
+    Rate numeric(10,8)
+)
 AS
-DECLARE VARIABLE path varchar(300);
+DECLARE VARIABLE url varchar(300);
 DECLARE VARIABLE reader int;
 DECLARE VARIABLE res int;
+DECLARE VARIABLE xml blob;
 BEGIN
-  path='/tmp/xmlreadertest.xml';
-  select BBUDF_XMLREADER_OPEN(:path) from RDB$DATABASE into reader;
-  if (reader <> 0) then
+  url='http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
+  xml=bbudf_curl_exec('GET',url,NULL,NULL,NULL,NULL,NULL,NULL);
+  res=bbudf_curl_get_response_code();
+  if(res!=200) then  exception;
+
+  reader=bbudf_xmlreader_openblob(:xml);
+  if (reader != 0) then
   begin
-    select BBUDF_XMLREADER_READ(:reader) from RDB$DATABASE into res;
-    while (res=1) do
+    while (BBUDF_XMLREADER_READ(:reader)=1) do
     begin
-
-        select BBUDF_XMLREADER_NODETYPE(:reader) from RDB$DATABASE into nodetype;
-        if (nodetype=1) then
+        if (BBUDF_XMLREADER_NODETYPE(:reader)=1) then
         begin
-            select
-                BBUDF_XMLREADER_NAME(:reader),
-                BBUDF_XMLREADER_LOCALNAME(:reader),
-                BBUDF_XMLREADER_DEPTH(:reader),
-                BBUDF_XMLREADER_ISEMPTYELEMENT(:reader),
-                BBUDF_XMLREADER_GETATTRIBUTE(:reader,'key')
-            from RDB$DATABASE into
-                name,
-                localname,
-                depth,
-                isemptyelement,
-                entrykey;
-
-            if (name='entry') then val=BBUDF_XMLREADER_READSTRING(:reader);
-            else val=NULL;
-            suspend;
+                if (BBUDF_XMLREADER_LOCALNAME(:reader)='Cube') then
+                begin
+                   Currency=BBUDF_XMLREADER_GETATTRIBUTE(:reader,'currency');
+                   Rate=BBUDF_XMLREADER_GETATTRIBUTE(:reader,'rate');
+                   if (Currency is not null and rate is not null) then suspend;
+                end
         end
-        select BBUDF_XMLREADER_READ(:reader) from RDB$DATABASE into res;
     end
-    select BBUDF_XMLREADER_CLOSE(:reader) from RDB$DATABASE into res;
+    BBUDF_XMLREADER_CLOSE(:reader);
   end
 END
-^
-SET TERM ; ^
-

@@ -49,6 +49,8 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 			logger::blobprinf(outblob,"curl_easy_init() failed\n");
 			return;
 		}
+	}else{
+		curl_easy_reset(curl::ch);
 	}
 	ch=curl::ch;
 	curl_easy_setopt(ch,CURLOPT_NOSIGNAL,1);
@@ -74,7 +76,7 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 	if(headers){
 #if defined(WIN32)
 #else
-		
+
 		char *saveptr;
 		char *headersdup=strdup(headers);
 		char *token=strtok_r(headersdup, "\n", &saveptr);
