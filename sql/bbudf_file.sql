@@ -6,6 +6,9 @@ set sql dialect 3;
 drop external function bbudf_file_get_contents;
 drop external function bbudf_file_put_contents;
 drop external function bbudf_tempnam;
+drop external function bbudf_mkpath;
+drop external function bbudf_dirname;
+drop external function bbudf_unlink;
 */
 
 --FBUDF_API void fn_file_get_contents(const char* filename, blobcallback* outblob)

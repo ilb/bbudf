@@ -103,6 +103,7 @@ help: .help-post
 install:
 	${RM} ${UDFLIBDIR}/${CND_ARTIFACT_NAME_${CONF}}
 	${CP} ${CND_ARTIFACT_PATH_${CONF}} ${UDFLIBDIR}
+	${CP} sql/* ${UDFLIBDIR}
 
 # include project implementation makefile
 include nbproject/Makefile-impl.mk
