@@ -104,7 +104,8 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 		 curl_slist_free_all(slist);
 	}
 	if(code != CURLE_OK){
-		logger::blobprinf(outblob,"curl_easy_perform() failed: %s\nsslcert=%s\nsslcertpassword=(%d chars)\ncainfo=%s",curl_easy_strerror(code),sslcert,strlen(sslcertpassword),cainfo);
+            logger::syslog(1,"curl_easy_perform() failed: %s\nsslcert=%s\nsslcertpassword=(%d chars)\ncainfo=%s",curl_easy_strerror(code),sslcert,strlen(sslcertpassword),cainfo);
+		logger::blobprinf(outblob,"curl_easy_perform() failed: %s",curl_easy_strerror(code));
 		return;
 	}
 	curl_easy_getinfo(ch, CURLINFO_RESPONSE_CODE, &curl::curl_response_code);
