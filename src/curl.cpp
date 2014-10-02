@@ -6,6 +6,7 @@ namespace curl {
 	//TODO http://www.openssl.org/docs/crypto/threads.html#DESCRIPTION
 	__thread CURL* ch=NULL;
 	__thread long curl_response_code=0;
+        __thread int curl_retry_count=0;
 	int curl_global_init_called=0;
 
 	size_t readfunction_blob( char *ptr, size_t size, size_t nmemb, void *userdata){
@@ -104,9 +105,16 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 		 curl_slist_free_all(slist);
 	}
 	if(code != CURLE_OK){
-            logger::syslog(1,"curl_easy_perform() failed: %s, url=%s, sslcert=%s, sslcertpassword=(%d chars), cainfo=%s",curl_easy_strerror(code),url,sslcert,strlen(sslcertpassword),cainfo);
-		logger::blobprinf(outblob,"curl_easy_perform() failed: %s",curl_easy_strerror(code));
+            logger::syslog(1,"curl_easy_perform() failed(%d): %s, url=%s, sslcert=%s, sslcertpassword=(%d chars), cainfo=%s, retry=%d",code,curl_easy_strerror(code),url,sslcert,strlen(sslcertpassword),cainfo,curl::curl_retry_count);
+            if (code==58 && curl::curl_retry_count<1){ // "code=58 is "Problem with the local SSL certificate" error, retrying
+                curl::curl_retry_count++;
+                curl_easy_cleanup(curl::ch);
+                curl::ch=NULL;
+                return fn_curl_exec(method,url,sslcert,sslcertpassword,cainfo,headers,datablob,cookies,outblob);
+            }else{
+		logger::blobprinf(outblob,"curl_easy_perform() failed(%d): %s",code,curl_easy_strerror(code));
 		return;
+            }
 	}
 	curl_easy_getinfo(ch, CURLINFO_RESPONSE_CODE, &curl::curl_response_code);
 }
