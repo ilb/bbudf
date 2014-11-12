@@ -110,6 +110,8 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
                 curl::curl_retry_count++;
                 curl_easy_cleanup(curl::ch);
                 curl::ch=NULL;
+                curl_global_cleanup();
+                curl::curl_global_init_called=0;
                 return fn_curl_exec(method,url,sslcert,sslcertpassword,cainfo,headers,datablob,cookies,outblob);
             }else{
 		logger::blobprinf(outblob,"curl_easy_perform() failed(%d): %s",code,curl_easy_strerror(code));
