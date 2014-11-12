@@ -117,7 +117,9 @@ FBUDF_API void fn_curl_exec(const char* method,const char* url, const char* sslc
 		logger::blobprinf(outblob,"curl_easy_perform() failed(%d): %s",code,curl_easy_strerror(code));
 		return;
             }
-	}
+	} else {
+            curl::curl_retry_count=0;
+        }
 	curl_easy_getinfo(ch, CURLINFO_RESPONSE_CODE, &curl::curl_response_code);
 }
 FBUDF_API long fn_curl_get_response_code() {
