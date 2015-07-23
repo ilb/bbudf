@@ -1,9 +1,11 @@
 bbudf
 =====
 
-Firebird udf wrapper functions (curl,libxml2,etc)
+Firebird udf wrapper functions (curl,libxml2,etc).
+
 This library can be used in legacy firebird applications
 to execute external transaction or get some data for processing.
+
 Binaries
 https://build.opensuse.org/package/show/home:slavb18:firebird/bbudf
 
