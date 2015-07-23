@@ -8,7 +8,7 @@ Binaries
 https://build.opensuse.org/package/show/home:slavb18:firebird/bbudf
 
 Example use: call web service using curl and parse xml response with XML Reader.
-
+```
 execute block
 RETURNS (
     Currency Varchar(3),
@@ -43,3 +43,4 @@ BEGIN
     BBUDF_XMLREADER_CLOSE(:reader);
   end
 END
+```
