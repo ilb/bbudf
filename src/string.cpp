@@ -12,7 +12,7 @@ FBUDF_API void fn_strerror(int* errnum, paramdsc* rc) {
 #endif
 }
 
-FBUDF_API void fn_getenv(const char* name, paramdsc* rc) {
+FBUDF_API void fn_getenv(char* name, paramdsc* rc) {
 	char* value=getenv(name);
 	int len=strlen(value);
 	const int maxlen=255; //rc->dsc_length-internal::varchar_indicator_size;
