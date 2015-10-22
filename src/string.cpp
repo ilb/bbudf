@@ -14,6 +14,10 @@ FBUDF_API void fn_strerror(int* errnum, paramdsc* rc) {
 
 FBUDF_API void fn_getenv(const char* name, paramdsc* rc) {
 	char* value=getenv(name);
+        if(value==NULL){
+		internal::setnull(rc);
+		return;
+        }
 	int len=strlen(value);
 	const int maxlen=255; //rc->dsc_length-internal::varchar_indicator_size;
 	if(len>maxlen){
