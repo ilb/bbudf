@@ -12,7 +12,7 @@ FBUDF_API void fn_strerror(int* errnum, paramdsc* rc) {
 #endif
 }
 
-FBUDF_API void fn_getenv(const char* name, paramdsc* rc) {
+FBUDF_API void fn_getenv(char* name, paramdsc* rc) {
 	char* value=getenv(name);
         if(value==NULL){
 		internal::setnull(rc);
