@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -213,8 +213,8 @@
         <ccTool>
           <commandlineTool>i686-w64-mingw32-g++</commandlineTool>
           <incDir>
-            <pElem>/usr/x86_64-w64-mingw32/sys-root/mingw/include</pElem>
-            <pElem>/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2</pElem>
+            <pElem>/usr/i686-w64-mingw32/sys-root/mingw/include</pElem>
+            <pElem>/usr/i686-w64-mingw32/sys-root/mingw/include/libxml2</pElem>
             <pElem>/usr/include/firebird</pElem>
           </incDir>
           <preprocessorList>
@@ -301,8 +301,8 @@
           <developmentMode>5</developmentMode>
           <commandlineTool>i686-w64-mingw32-g++</commandlineTool>
           <incDir>
-            <pElem>/usr/x86_64-w64-mingw32/sys-root/mingw/include</pElem>
-            <pElem>/usr/x86_64-w64-mingw32/sys-root/mingw/include/libxml2</pElem>
+            <pElem>/usr/i686-w64-mingw32/sys-root/mingw/include</pElem>
+            <pElem>/usr/i686-w64-mingw32/sys-root/mingw/include/libxml2</pElem>
             <pElem>/usr/include/firebird</pElem>
           </incDir>
           <preprocessorList>
@@ -317,7 +317,6 @@
           <commandlineTool>i686-w64-mingw32-g++</commandlineTool>
           <linkerLibItems>
             <linkerLibLibItem>xml2</linkerLibLibItem>
-            <linkerLibLibItem>ib_util</linkerLibLibItem>
             <linkerLibLibItem>curl</linkerLibLibItem>
           </linkerLibItems>
           <commandLine>-static-libgcc -static-libstdc++</commandLine>

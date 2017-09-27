@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -69,42 +69,42 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libbbudf.${CND_DLIB_EXT}: ${OBJECTFIL
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libbbudf.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared -fPIC
 
-${OBJECTDIR}/src/bbudf.o: src/bbudf.cpp 
+${OBJECTDIR}/src/bbudf.o: src/bbudf.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/bbudf.o src/bbudf.cpp
 
-${OBJECTDIR}/src/curl.o: src/curl.cpp 
+${OBJECTDIR}/src/curl.o: src/curl.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/curl.o src/curl.cpp
 
-${OBJECTDIR}/src/file.o: src/file.cpp 
+${OBJECTDIR}/src/file.o: src/file.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/file.o src/file.cpp
 
-${OBJECTDIR}/src/inet.o: src/inet.cpp 
+${OBJECTDIR}/src/inet.o: src/inet.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/inet.o src/inet.cpp
 
-${OBJECTDIR}/src/logger.o: src/logger.cpp 
+${OBJECTDIR}/src/logger.o: src/logger.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/logger.o src/logger.cpp
 
-${OBJECTDIR}/src/stdafx.o: src/stdafx.cpp 
+${OBJECTDIR}/src/stdafx.o: src/stdafx.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/stdafx.o src/stdafx.cpp
 
-${OBJECTDIR}/src/string.o: src/string.cpp 
+${OBJECTDIR}/src/string.o: src/string.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/string.o src/string.cpp
 
-${OBJECTDIR}/src/xmlreader.o: src/xmlreader.cpp 
+${OBJECTDIR}/src/xmlreader.o: src/xmlreader.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/libxml2 -I/usr/include/firebird -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/xmlreader.o src/xmlreader.cpp
@@ -115,7 +115,6 @@ ${OBJECTDIR}/src/xmlreader.o: src/xmlreader.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libbbudf.${CND_DLIB_EXT}
 
 # Subprojects
 .clean-subprojects:

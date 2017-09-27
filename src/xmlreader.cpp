@@ -17,7 +17,12 @@ namespace xmlreader {
 		char* ibresult=NULL;
 		if(xmlresult) {
 			int size=strlen((char*)xmlresult)+1;
+//FIXME link with ib_util
+#if defined(WIN32)
+                        ibresult=(char*)malloc(size);
+#else
 			ibresult=(char*)ib_util_malloc(size);
+#endif                                        
 			memcpy(ibresult,xmlresult,size);
 			xmlFree(xmlresult);
 		}

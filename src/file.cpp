@@ -37,6 +37,9 @@ namespace file {
 	//http://stackoverflow.com/questions/675039/how-can-i-create-directory-tree-in-c-linux
 
 	int do_mkdir(const char *path, int mode) {
+#if defined(WIN32)
+#else
+            
 		struct stat st;
 		int status = 0;
 
@@ -50,6 +53,7 @@ namespace file {
 		}
 
 		return (status);
+#endif                
 	}
 }
 
@@ -139,6 +143,8 @@ FBUDF_API int fn_mkpath(const char *path, int* mode) {
 }
 
 FBUDF_API void fn_dirname(const char *path, paramdsc* rc) {
+#if defined(WIN32)
+#else
 	char *dirc=strdup(path);
 	char *dirn=dirname(dirc);
 	int len = strlen(dirn);
@@ -147,6 +153,7 @@ FBUDF_API void fn_dirname(const char *path, paramdsc* rc) {
 	}
 	internal::set_any_string_type(rc, len, (ISC_UCHAR*) dirn);
 	free(dirc);
+#endif
 }
 
 FBUDF_API int fn_unlink(const char *path) {

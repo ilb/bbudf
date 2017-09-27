@@ -46,3 +46,7 @@ BEGIN
   end
 END
 ```
+#How to build using cross-compilation on opensuse
+
+1. install mingw32 packages sudo zypper install mingw32-cross-gcc mingw32-cross-gcc-c++ mingw32-gcc  mingw32-curl  mingw32-libxml2-2  mingw32-libxml2-devel mingw32-libcurl-devel
+2. compile: make CONF=Release-cross-mingw32 (or use netbeans)
