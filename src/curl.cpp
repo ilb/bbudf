@@ -15,7 +15,7 @@ namespace curl {
 		blobcallback* blob=(blobcallback*) userdata;
 		int res;
 		res=blob->blob_get_segment(blob->blob_handle,(ISC_UCHAR*)ptr,length,&actual_length);
-		logger::syslog(0, "xmlreader::readfunction_blob() len=%d,res=%d,actual_length=%d",length,res,actual_length);
+		//logger::syslog(0, "xmlreader::readfunction_blob() len=%d,res=%d,actual_length=%d",length,res,actual_length);
 		return actual_length;
 	}
 
